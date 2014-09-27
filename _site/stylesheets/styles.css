@@ -1,0 +1,49 @@
+header.colored {
+    background-color: #00B5B5;
+    color: white;
+    padding: 20px 0;
+}
+
+header .nav {
+    line-height: 50px;
+    text-align: center;
+}
+
+header .nav li a {
+    margin-left: 0.5em;
+    text-decoration: none;
+    color: white;
+}
+
+header .nav li a :hover {
+    background-color: none;
+}
+
+#logo {
+    font-size: 25pt;
+    text-decoration: none;
+    color: white;
+}
+
+#logo a {
+    color: white;
+    text-decoration: none;
+}
+
+#collapsing-navbar {
+    height: 40px !important;
+}
+
+footer {
+    float: bottom;
+    border-top: solid 1px #F0F0F0;
+    margin-top: 1em;
+    padding: 10px;
+    font-size: 11px;
+}
+
+footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
