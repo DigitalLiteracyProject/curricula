@@ -10,9 +10,12 @@
     
     <div class="container">
         <h2>Main Curriculum</h2>
-        {% for page in site.pages %}
-          <p><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></p>
+        {% assign sorted_pages = (site.pages | sort: 'order' | where: 'type', 'main') %}
+        <ul>
+        {% for page in sorted_pages %}
+          <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
         {% endfor %}
+        <ul>
     </div>
 
     {% include footer.html %}

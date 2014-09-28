@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include head.html %}
+</head>
+
+<body>
+    {% include header.html %}
+    
+    <div class="container">
+        {{ content }}
+
+<!--         {% assign sorted_pages = (site.pages | sort: 'order' | where: 'type', 'main') %}
+        {% assign page_index = sorted_pages.index(page) %}
+        <div class="row">
+            <div class="col-md-6">
+                {% if page.order > 0  %}
+                    {% assign previous_page = sorted_pages[page.order - 1] %}
+                    {{ previous_page }}
+                    <a href="{{ site.baseurl }}{{ previous_page.url }}">Previous Lesson</a>
+                {% endif %}
+                {% if page_index < sorted_pages.size()  %}
+                    {% assign next_page = sorted_pages[page_index + 1] %}
+                    <a href="{{ site.baseurl }}{{ next_page.url }}">Next Lesson</a>
+                {% endif %}
+            </div>
+        </div> -->
+    </div>
+
+    {% include footer.html %}
+
+    <!-- Scripts go here! -->
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/custom.js"></script>
+
+</body>
+</html>

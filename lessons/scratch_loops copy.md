@@ -1,6 +1,8 @@
 ---
 title: Scratch Part II
-layout: default
+layout: lesson
+type: main
+order: 1
 ---
 
 # Scratch - Loops

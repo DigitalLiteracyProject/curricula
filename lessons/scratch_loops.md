@@ -1,7 +1,8 @@
 ---
 title: Scratch Loops
-layout: default
-header: DLP Main Curriculum
+layout: lesson
+type: main
+order: 0
 ---
 
 # Scratch - Loops
