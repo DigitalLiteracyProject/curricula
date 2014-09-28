@@ -1,3 +1,6 @@
+safe: true
+
+
 domain: dlp.io/curricula
 author: Digital Literacy Project
 email: info@digiliteracy.org
@@ -6,3 +9,5 @@ title: DLP curricula
 markdown: rdiscount
 
 exclude: ['Rakefile', 'README.md', 'config.rb']
+
+baseurl: '/curricula'
