@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Processing.js - Conditionals</title>
+
+<meta name="author" content="The Digital Literacy Project">
+<meta name="description" content="The DLP Curricula">
+
+<!-- Load CSS -->
+<link href="/curricula/stylesheets/bootstrap.min.css" rel="stylesheet">
+<link href="/curricula/stylesheets/styles.css" rel="stylesheet">
+<link href="/curricula/stylesheets/github-markdown.css" rel="stylesheet">
+
+<!-- Load Custom Fonts -->
+</head>
+
+<body>
+    <header class="colored">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-5">
+                <div id="logo">
+                    <a href="/curricula/"><strong>DLP</strong> Curricula</a>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-7">
+                <div class="collapse navbar-collapse navbar-right" id="collapsing-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/curricula/curriculum.html">Main Curriculum</a></li>
+                        <li><a href="/curricula/supplementary">Supplementary Curriculum</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h4></h4>
+    </div>
+</header>
+    
+    <div class="container">
+        <h1>Processing.js - Conditionals</h1>
+
+<p><strong>Objective:</strong> This lesson will introduce students to conditionals. Students will learn the syntax of if-then constructions and will gain a basic understanding of booleans.</p>
+
+<h2>Key Words and Concepts</h2>
+
+<ul>
+<li>conditionals</li>
+<li>boolean</li>
+</ul>
+
+
+<h2>Timeline</h2>
+
+<h3>Review Draw</h3>
+
+<p><em>Since the draw function is an important concept in Processing.js and can be difficult for students to grasp, this lesson’s review time will largely repeat the material from the previous lesson.</em></p>
+
+<p>Last week, we learned how to animate our drawings using the draw function. Let’s begin by returning to a practice exercise from two lessons ago. We started with a program that draws a bee. We then added a variable that allowed us to move the entire bee by only changing one number.</p>
+
+<p>If we were moving the car “manually,” we would increase the horizontal position, <code>x</code>, by 1 each time. We can do the same thing with code by adding a line within the braces that increases <code>x</code>. This line of code would be <code>x = x + 1</code>.</p>
+
+<p>As we noticed last week, however, the bee remains stationary. This is because each time the loop runs, it resets <code>x</code> to 0. We can easily fix this by placing this line of code outside the loop. Now we set the value of <code>x</code> to be 0 outside the loop, and it increases each time. Typically, we don’t want to declare variables within loops.</p>
+
+<p>When the restart button in the bottom-right corner is pressed, the bee starts on the left and slowly moves to the right. Like last week, we notice that the bee leaves behind a blob. We can fix this by adding one line of code that colors in the background before drawing the car each time. This line of code should be placed within the braces, before the rest of the code.</p>
+
+<p><a href="https://www.khanacademy.org/cs/flying-bee/5302398142644224)">https://www.khanacademy.org/cs/flying-bee/5302398142644224)</a></p>
+
+<h3>Introduce “If”</h3>
+
+<p>Last week, we began building an animated car that starts on the left side of the screen and moves to the right. Once it leaves the right side of the screen, it never returns. If we want to watch the animation again, we would have to press the restart button. Suppose we wanted the car to return to the start each time it left the screen. We would need some way to check if it left the screen, then send it back to the beginning.</p>
+
+<p>We can use conditionals to do just this. We begin conditionals with the word <code>if</code>. This is followed by a set of parentheses, which contain a condition or boolean. A boolean is a statement that can either be true or false. In English, the boolean we want to test is “has the car left the screen?”. In order to answer this question, we can check if the x coordinate of the car is greater than 400. In code, this would look like: <code>if (x &gt; 400)</code>.</p>
+
+<p><em>Building conditionals from English sentences is a good technique for learning how to write <code>if</code> statements. Emphasize this process throughout the lesson.</em></p>
+
+<p>After the parentheses, we add a set of braces. Everything that we put inside of these braces will happen only if the boolean is true. Inside the braces, we want to write code that places the car back at the beginning of the screen. In other words, we want to set the x coordinate of the car back to 0. In code, this would be <code>x = 0;</code>.</p>
+
+<p>Putting this together, we have:</p>
+
+<pre><code>if (x &gt; 400)  
+{  
+    x = 0;  
+}  
+</code></pre>
+
+<p>If this is inside of the draw function, each time the computer loops through the code, it will check to see if the variable <code>x</code> is greater than 400. If it is greater than 400, it will set <code>x</code> equal to 0. If it is not greater than 400, it will ignore the line that sets <code>x</code> equal to zero.</p>
+
+<p><a href="https://www.khanacademy.org/cs/animated-car-with-conditionals/2038000455">https://www.khanacademy.org/cs/animated-car-with-conditionals/2038000455</a></p>
+
+<p><em>Personifying the computer here might help to explain how computers deal with conditionals. Pretend to “be” the computer, and walk through code with a number of possible <code>x</code>’s.</em></p>
+
+<h3>Elaborate on Booleans</h3>
+
+<p>In order to determine whether the car has left the screen, we checked that its x coordinate was greater than 400. In a different scenario, we might want to check if a number is less than another or check if a number is equal to another. The following symbols can be used to compare two numbers in Processing.js:</p>
+
+<blockquote><p>&lt;    less than<br/>
+>    greater than<br/>
+===    equal to<br/>
+&lt;=    less than or equal to<br/>
+>=    greater than or equal to</p></blockquote>
+
+<p>If you want a statement to be true only if 2 booleans are true, you can combine them with “and”: <code>&amp;&amp;</code>. If you want a statement to be true if 1 or both of 2 booleans are true, you can combine them with “or”: <code>||</code>.</p>
+
+<p><em>Provide some examples in which it might be useful to combine two booleans. If you want to foreshadow later exercises, explain how you might determine if a point is in the bottom right corner of the screen.</em></p>
+
+<h3>Introduce “Else”</h3>
+
+<p>Suppose we want to utilize our new knowledge of conditionals to create a program that helps people round decimals. If we have a number between 0 and 1 and we want to round to the nearest integer (i.e. 0 or 1), we would round down if the number were less than 0.5 and round up if the number were greater than or equal to 0.5. Suppose we want to tell the user to round down by making the background black and tell the user to round up by making the background red.</p>
+
+<p>Let’s declare a variable called num that will keep track of the number that we want to round. We can set it to 0.5 initially: <code>var num = 0.5;</code></p>
+
+<p>Now our knowledge of conditionals comes in handy. We can write an if statement that tests if <code>num</code> is less than 0.5 and makes the background black if so. This code would look as follows:</p>
+
+<pre><code>if (num &lt; 0.5) 
+{
+    background(0, 0, 0);
+}
+</code></pre>
+
+<p>Now we need to test if <code>num</code> is greater than or equal to 0.5. We can write another <code>if</code> statement that looks as follows:</p>
+
+<pre><code>if (num &gt;= 0.5) 
+{
+    background(255, 0, 0);
+}
+</code></pre>
+
+<p>The background is now red! This is the expected behavior since <code>num</code> is currently set to 0.5. The computer checks if <code>num</code> is less than 0.5, realizes it is not, and ignores the code between these braces (the code that makes the background black). The computer then checks if <code>num</code> is greater than or equal to 0.5, realizes that it is, and executes the code between these braces (the code that makes the background red). If we set <code>num</code> to a different number, say 0.3, we see that the background becomes black.</p>
+
+<p>This program seems to work as expected so let’s take another look at the <code>if</code> statements. We first check to see if <code>num</code> is less than 0.5 then we check to see if <code>num</code> is greater than or equal to 0.5. Since this covers all possible cases, we can actually replace the second <code>if</code> statement with the word <code>else</code>:</p>
+
+<pre><code>if (num &lt; 0.5) 
+{
+    background(0, 0, 0);
+} 
+else 
+{
+    background(255, 0, 0);
+}
+</code></pre>
+
+<p>Now the computer checks if <code>num</code> is less than 0.5. If it is, it makes the background black. Otherwise, it makes the background red. The concept of “otherwise” is expressed in code as <code>else</code>. <code>Else</code>s only come after <code>if</code>s and everything inside their braces happens only if the boolean in the <code>if</code> statement is false. Although it was perfectly correct to use the two <code>if</code> statements, using this <code>else</code> statement makes our code cleaner and slightly faster since the computer doesn’t have to check the second condition.</p>
+
+<p><a href="https://www.khanacademy.org/cs/round-updown/2045097594">https://www.khanacademy.org/cs/round-updown/2045097594</a></p>
+
+<h3>Worksheet</h3>
+
+<p>Open your workbooks and complete the worksheet on page [].</p>
+
+<h3>Practice</h3>
+
+<p>When you have shown one of us your completed worksheet, you can turn to page [] and begin working on the <a href="https://docs.google.com/a/college.harvard.edu/presentation/d/1xOOMcZFJRK79y80scU9wocH-IvcfvzIte-aQrkSsFso/edit?usp=sharing">practice exercises</a>.</p>
+
+<h2>Relevant Links</h2>
+
+<ul>
+<li><a href="https://www.khanacademy.org/cs/swimming-fish/6486229876998144">Finished Swimming Fish</a></li>
+<li><a href="https://www.khanacademy.org/cs/rising-balloon/6471795834093568">Finished Rising Balloon</a></li>
+</ul>
+
+
+
+<!--         
+        
+        <div class="row">
+            <div class="col-md-6">
+                
+                    
+                    
+                    <a href="/curricula">Previous Lesson</a>
+                
+                
+            </div>
+        </div> -->
+    </div>
+
+    <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <ul class="text-left list-inline">
+                    <li>&copy; 2014 Digital Literacy Project</li>
+                    <li><a href="/curricula/license">License</a></li>
+                    <li><a href="/curricula/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <a href="dlp.io">DLP.io</a>
+            </div>
+            <div class="col-md-5 text-right">
+                <a href="https://github.com/DigitalLiteracyProject/curricula">Fork this on Github</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scripts go here! -->
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/custom.js"></script>
+
+</body>
+</html>

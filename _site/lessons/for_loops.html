@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Processing.js - For Loops</title>
+
+<meta name="author" content="The Digital Literacy Project">
+<meta name="description" content="The DLP Curricula">
+
+<!-- Load CSS -->
+<link href="/curricula/stylesheets/bootstrap.min.css" rel="stylesheet">
+<link href="/curricula/stylesheets/styles.css" rel="stylesheet">
+<link href="/curricula/stylesheets/github-markdown.css" rel="stylesheet">
+
+<!-- Load Custom Fonts -->
+</head>
+
+<body>
+    <header class="colored">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-5">
+                <div id="logo">
+                    <a href="/curricula/"><strong>DLP</strong> Curricula</a>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-7">
+                <div class="collapse navbar-collapse navbar-right" id="collapsing-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/curricula/curriculum.html">Main Curriculum</a></li>
+                        <li><a href="/curricula/supplementary">Supplementary Curriculum</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h4></h4>
+    </div>
+</header>
+    
+    <div class="container">
+        <h1>Processing.js - <code>For</code> Loops</h1>
+
+<p><strong>Objective:</strong> This lesson will introduce students to for loops.</p>
+
+<h2>Key Terms and Concepts</h2>
+
+<ul>
+<li><code>for</code> loop</li>
+<li>initialization / condition / update</li>
+</ul>
+
+
+<h2>Timeline</h2>
+
+<h3>Review</h3>
+
+<p><em>At this point in the course, it is likely that the material that requires reinforcement will vary from classroom to classroom. Review whatever material is most challenging for your students, referring to past lessons for explanations and exercises.</em></p>
+
+<h3>Introduce <code>For</code> Loops</h3>
+
+<p><em>This lesson’s worksheet may be used as a note-taking tool, but might be more effective as a quiz at the end of class or before independent practice.</em></p>
+
+<p>Last week, we began working with the draw function. We know that everything inside this function will be repeated forever. Suppose that instead we want to repeat a section of code a set number of times. In this case, we can use a structure called a for loop.</p>
+
+<p>There are three parts to the <code>for</code> loop: the initialization, the condition, and the update. These parts are separated by semicolons. Let’s look at the following example:</p>
+
+<pre><code>for (var i = 0; i &lt; 4; i++)
+{
+    // code here
+}
+</code></pre>
+
+<p>Let’s start with the initialization: <code>var i = 0</code>. The initialization creates a new variable and gives it an initial value. You can think of it as a counter that keeps track of how many times our code has run. Here, we start the counter at 0.</p>
+
+<p>Next, we have the condition: <code>i &lt; 4</code>. The condition tells us when we should loop. Here, we know that we should only loop while the variable <code>i</code> is less than 4. We will be discussing conditions in depth next week.</p>
+
+<p>Finally, we have the update: <code>i++</code>. The update tells us how our counter variable changes each time we loop. The <code>++</code> here means that we increase <code>i</code> by 1 each time.</p>
+
+<p>We can tell that the code inside this particular loop runs exactly 4 times. This is because the code will run when <code>i</code> is equal 0, 1, 2, and 3, but when <code>i</code> gets to 4, it will stop running.</p>
+
+<h3>Use <code>For</code> Loops</h3>
+
+<p>Now that we understand the basic structure of for loops, let’s look at how we can utilize them within our programs. Suppose we wanted to draw four circles across the center of the screen. Before we introduced for loops, we would have written:</p>
+
+<pre><code>ellipse(50, 200, 100, 100);
+ellipse(150, 200, 100, 100);
+ellipse(250, 200, 100, 100);
+ellipse(350, 200, 100, 100);
+</code></pre>
+
+<p><a href="https://www.khanacademy.org/cs/circles-without-loops/6283722269655040">https://www.khanacademy.org/cs/circles-without-loops/6283722269655040</a></p>
+
+<p>You might take this opportunity to review how we determined these parameters!</p>
+
+<p>Four lines of code didn’t take that long to write, but what if we wanted to draw 40 circles? 400? Let’s see how we can use a <code>for</code> loop and only one call to the ellipse function to draw any number of circles. We will start with the structure that we analyzed previously, replacing the comment with a call to ellipse function:</p>
+
+<pre><code>for (var i = 0; i &lt; 4; i++)
+{
+    ellipse(50, 200, 100, 100);
+}
+</code></pre>
+
+<p>The code above effectively draws 4 circles; however, all 4 circles are drawn in the same location. If instead we want to see the circles across the screen, each ellipse must have a different x-coordinate / horizontal position. That means that each time the for loop calls the ellipse function, the first parameter needs to be different.</p>
+
+<p>We know that each time the code inside of the for loop runs, the value of the variable <code>i</code> changes. We can therefore utilize <code>i</code> in order to change the value of the first parameter. Let’s compare the values of <code>i</code> and the x coordinates that we want the ellipses to have (using the 4 lines we wrote earlier as a reference):</p>
+
+<blockquote><p>   i     |     x <br/>
+    0     |    50<br/>
+    1     |   150<br/>
+    2     |   250<br/>
+    3     |   350</p></blockquote>
+
+<p>The first time the for loop runs, we want x to be 50. After that, we want to increase x by 100 each time. Let’s start by creating a variable <code>x</code>, and we will initialize it to 50. At the end of the loop, we want to increase <code>x</code> by 100. This should remind us of how we changed <code>x</code> at the end of the draw function.</p>
+
+<pre><code>var x = 50;
+for (var i = 0; i &lt; 4; i++)
+{
+    ellipse(x, 200, 100, 100);
+    x = x + 100;
+}
+</code></pre>
+
+<p><a href="https://www.khanacademy.org/cs/circles-with-loops/5546537841065984">https://www.khanacademy.org/cs/circles-with-loops/5546537841065984</a></p>
+
+<h3>Worksheet</h3>
+
+<p>Open your workbooks and complete the worksheet on page [].</p>
+
+<h3>Practice</h3>
+
+<p>When you have shown one of us your completed worksheet, you can turn to page [] and begin working on the <a href="https://docs.google.com/a/college.harvard.edu/presentation/d/1jdTxl25xI-ioUktKHoL38K_HNdGW6ZpBoM6kV1879ms/edit?usp=sharing">practice exercises</a>.</p>
+
+<h2>Relevant Links</h2>
+
+<ul>
+<li><a href="https://www.khanacademy.org/cs/caterpillar-with-loops/5563854964654080">Finished Caterpillar with Loops</a></li>
+<li><a href="https://www.khanacademy.org/cs/spectrum/6102546389139456">Finished Spectrum</a></li>
+</ul>
+
+
+
+<!--         
+        
+        <div class="row">
+            <div class="col-md-6">
+                
+                    
+                    
+                    <a href="/curricula">Previous Lesson</a>
+                
+                
+            </div>
+        </div> -->
+    </div>
+
+    <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <ul class="text-left list-inline">
+                    <li>&copy; 2014 Digital Literacy Project</li>
+                    <li><a href="/curricula/license">License</a></li>
+                    <li><a href="/curricula/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <a href="dlp.io">DLP.io</a>
+            </div>
+            <div class="col-md-5 text-right">
+                <a href="https://github.com/DigitalLiteracyProject/curricula">Fork this on Github</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scripts go here! -->
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/custom.js"></script>
+
+</body>
+</html>
